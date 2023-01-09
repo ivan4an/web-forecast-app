@@ -32,13 +32,6 @@ try:
     # Get current time
     current_time = datetime.datetime.now()
 
-    # LOCATION DATA
-    # Get location data
-    location_name = bd.get_location_data(latitude, longitude)
-    # Extract location name
-    location_name = location_name[0]
-    location_name = location_name['name']
-
     # METEO DATA
     # Get meteo data
     meteo_data = bd.get_meteo_data(latitude, longitude)
@@ -58,8 +51,7 @@ try:
 
     # Show the information about current weather
     st.subheader("Current weather")
-    st.markdown(f"**{current_weathercode_text.capitalize()}** in "
-                f"**{location_name}**. "
+    st.markdown(f"**{current_weathercode_text.capitalize()}**. "
                 f"Temperature is **{current_temperature} °C**. "
                 f"**{current_winddirection_text.capitalize()}** "
                 f"wind is blowing at a speed "
