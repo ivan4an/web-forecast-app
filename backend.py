@@ -3,8 +3,8 @@ import pandas as pd
 import streamlit as st
 import os
 
-#API_KEY_LOCATION = os.getenv("API_METEO")
-API_KEY_LOCATION = st.secrets["API_KEY_LOCATION"]
+API_KEY_LOCATION = os.getenv("API_METEO")
+#API_KEY_LOCATION = st.secrets["API_KEY_LOCATION"]
 BINS = [0, 22.5, 67.5, 112.5, 157.5, 202.5, 247.5, 292.5, 337.5, 360]
 LABELS = ["North", "Notheast", "East", "Southeast", "South",
            "Southwest", "West", "Northwest", "north"]
@@ -70,10 +70,10 @@ def get_location_data(latitude, longitude, limit=0):
           f"limit={limit}&a" \
           f"ppid={API_KEY_LOCATION}"
     response = requests.get(url)
-    data = response.json()
+    data = response.json()[0]
     return data
 
 
 if __name__ == "__main__":
-    data = get_meteo_data(27.877077, -0.285319)
+    data = get_location_data(27.877077, -0.285319)
     print(data)
