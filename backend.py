@@ -1,8 +1,10 @@
 import requests
 import pandas as pd
+import streamlit as st
 import os
 
-API_KEY_LOCATION = os.getenv("API_METEO")
+#API_KEY_LOCATION = os.getenv("API_METEO")
+API_KEY_LOCATION = st.secrets["API_KEY_LOCATION"]
 BINS = [0, 22.5, 67.5, 112.5, 157.5, 202.5, 247.5, 292.5, 337.5, 360]
 LABELS = ["North", "Notheast", "East", "Southeast", "South",
            "Southwest", "West", "Northwest", "north"]
@@ -65,8 +67,8 @@ def get_location_data(latitude, longitude, limit=0):
     url = f"http://api.openweathermap.org/geo/1.0/reverse?" \
           f"lat={latitude}&" \
           f"lon={longitude}&" \
-          f"limit={limit}&" \
-          f"appid={API_KEY_LOCATION}"
+          f"limit={limit}&a" \
+          f"ppid={API_KEY_LOCATION}"
     response = requests.get(url)
     data = response.json()
     return data
