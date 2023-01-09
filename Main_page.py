@@ -34,10 +34,10 @@ try:
 
     # LOCATION DATA
     # Get location data
-    loc_name = bd.get_location_data(latitude, longitude)
+    location_name = bd.get_location_data(latitude, longitude)
     # Extract location name
-    #location_name_list = loc_name[0]
-    location_name = loc_name['name']
+    location_name = location_name[0]
+    location_name = location_name['name']
 
     # METEO DATA
     # Get meteo data

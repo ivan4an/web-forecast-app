@@ -70,7 +70,7 @@ def get_location_data(latitude, longitude, limit=0):
           f"limit={limit}&a" \
           f"ppid={API_KEY_LOCATION}"
     response = requests.get(url)
-    data = response.json()[0]
+    data = response.json()
     return data
 
 
